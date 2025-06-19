@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Задание по принтерам и Excel</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            background: #282828;
+            color: #e0e0e0;
+        }
+
+        h1, h2, h3 {
+            color: #739e56;
+        }
+        
+        .section {
+            margin-bottom: 30px;
+            padding: 20px;
+            background-color: #1f1d1d;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        
+                /* разделители */
+        th, td {
+            border: 1px solid #444;
+            padding: 8px;
+            text-align: left;
+        }
+        
+          /* перв */
+        th {
+            background-color: #3a3a3a;
+            color: #fff;
+        }
+
+                /* чет */
+        tr:nth-child(even) {
+            background-color: #2a2a2a;
+        }
+
+                /* формулы */
+        .formula {
+            font-family: "Times New Roman", serif;
+            font-size: 1.2em;
+            margin: 15px 0;
+            padding: 10px;
+            background-color: #3a3a3a;
+            border-left: 4px solid #7fc6ff;
+            color: #fff;
+        }
+        
+        /* результат */
+        .highlight {
+            background-color: #9e9e2d;
+        }
+        
+
+        button {
+            background-color: #72a174;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin: 5px 0;
+        }
+
+        button:hover {
+            background-color: #63e010;
+        }
+        
+        /* нижн */
+        .total-row {
+            font-weight: bold;
+            background-color:  #2a2a2a !important;
+        }
+        /* 3 ниж */
+        .calc-row {
+            background-color: #3a3a3a !important;
+        }
+        
+        ul, ol {
+            padding-left: 20px;
+        }
+        
+        li {
+            margin-bottom: 5px;
+        }
+            </style>
+    <!-- Подключаем MathJax -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    </style>
+</head>
+<body>
+    <div class="section">
+        <h1>1. Назначение, применение и принцип работы струйного принтера</h1>
+        
+        <h2>Назначение:</h2>
+        <p>Струйный принтер — это устройство для вывода цифровой информации на бумагу или другие носители (плёнку, ткань и т. д.) путём нанесения чернил.</p>
+        
+        <h2>Применение:</h2>
+        <ul>
+            <li>Печать документов, фотографий, графики.</li>
+            <li>Создание рекламных материалов (баннеров, плакатов).</li>
+            <li>Печать на специальных носителях (CD/DVD, ткань, керамика).</li>
+            <li>Использование в домашних, офисных и промышленных условиях.</li>
+        </ul>
+        
+        <h2>Принцип работы:</h2>
+        <ol>
+            <li><strong>Подача чернил:</strong> Чернила из картриджа поступают в печатающую головку.</li>
+            <li><strong>Формирование капель:</strong> Пьезоэлектрические или термические элементы создают микроскопические капли чернил.</li>
+            <li><strong>Нанесение на носитель:</strong> Капли чернил выбрасываются через сопла на бумагу, формируя изображение.</li>
+            <li><strong>Сушка:</strong> Чернила быстро впитываются или закрепляются на материале.</li>
+        </ol>
+    </div>
+
+    <div class="section">
+        <h1>2. Формулы в MS Word</h1>
+        
+        <p>Для создания формул в MS Word используйте <strong>Панель формул (Equation Tools)</strong>.</p>
+        
+        <h3>Примеры формул:</h3>
+        
+        <div class="formula">
+            1. Простая дробь: \(\frac{a}{b} + c^2\)
+        </div>
+        
+        <div class="formula">
+            2. Интеграл: \(\int_{0}^{1} x^2 \, dx\)
+        </div>
+        
+        <div class="formula">
+            3. Корень: \(\sqrt{x + y}\)
+        </div>
+        
+        <div class="formula">
+            4. Матрица: \(\begin{pmatrix} a & b \\ c & d \end{pmatrix}\)
+        </div>
+        
+        <p>Эти формулы создаются с помощью встроенного редактора формул в Word, который позволяет вводить математические символы и структуры.</p>
+    </div>
+
+    <div class="section">
+        <h1>3. Таблица "Список сотрудников депо" в MS Excel</h1>
+        
+        <button id="calculateBtn">Рассчитать таблицу</button>
+        
+        <table id="employeesTable">
+            <thead>
+                <tr>
+                    <th>№ п/п</th>
+                    <th>Ф.И.О.</th>
+                    <th>Пол</th>
+                    <th>Должность</th>
+                    <th>Должностной оклад</th>
+                    <th>Владение иностранным языком</th>
+                    <th>Надбавка за язык (25%)</th>
+                    <th>К выплате</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>Антонов П.П.</td>
+                    <td>м</td>
+                    <td>нач. отдела</td>
+                    <td class="salary">54000</td>
+                    <td class="language">владеет</td>
+                    <td class="bonus"></td>
+                    <td class="total"></td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>Гомелев Н.Р.</td>
+                    <td>м</td>
+                    <td>Машинист</td>
+                    <td class="salary">38000</td>
+                    <td class="language"></td>
+                    <td class="bonus"></td>
+                    <td class="total"></td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>Кулик В.В.</td>
+                    <td>м</td>
+                    <td>Слесарь</td>
+                    <td class="salary">38000</td>
+                    <td class="language">владеет</td>
+                    <td class="bonus"></td>
+                    <td class="total"></td>
+                </tr>
+                <tr>
+                    <td>4</td>
+                    <td>Антонова С.В.</td>
+                    <td>ж</td>
+                    <td>Зам. начальника</td>
+                    <td class="salary">44000</td>
+                    <td class="language">владеет</td>
+                    <td class="bonus"></td>
+                    <td class="total"></td>
+                </tr>
+                <tr class="calc-row">
+                    <td colspan="4">Среднее</td>
+                    <td class="avg-salary"></td>
+                    <td></td>
+                    <td class="avg-bonus"></td>
+                    <td class="avg-total"></td>
+                </tr>
+                <tr class="calc-row">
+                    <td colspan="4">Минимум</td>
+                    <td class="min-salary"></td>
+                    <td></td>
+                    <td class="min-bonus"></td>
+                    <td class="min-total"></td>
+                </tr>
+                <tr class="calc-row">
+                    <td colspan="4">Максимум</td>
+                    <td class="max-salary"></td>
+                    <td></td>
+                    <td class="max-bonus"></td>
+                    <td class="max-total"></td>
+                </tr>
+                <tr class="total-row">
+                    <td colspan="7">Всего</td>
+                    <td class="grand-total"></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+<!-- для расчета -->
+    <script>
+        document.getElementById('calculateBtn').addEventListener('click', function() {
+            // Получаем все строки с сотрудниками (первые 4 строки)
+            const rows = document.querySelectorAll('#employeesTable tbody tr:not(.calc-row):not(.total-row)');
+            const salaries = [];
+            const bonuses = [];
+            const totals = [];
+            
+            // Рассчитываем для каждого сотрудника
+            rows.forEach(row => {
+                const salary = parseFloat(row.querySelector('.salary').textContent);
+                const hasLanguage = row.querySelector('.language').textContent.trim() === 'владеет';
+                
+                const bonus = hasLanguage ? salary * 0.25 : 0;
+                const total = salary + bonus;
+                
+                row.querySelector('.bonus').textContent = bonus.toFixed(2);
+                row.querySelector('.total').textContent = total.toFixed(2);
+                
+                salaries.push(salary);
+                bonuses.push(bonus);
+                totals.push(total);
+            });
+            
+            // Рассчитываем статистику
+            function average(arr) {
+                return arr.reduce((a, b) => a + b, 0) / arr.length;
+            }
+            
+            function min(arr) {
+                return Math.min(...arr);
+            }
+            
+            function max(arr) {
+                return Math.max(...arr);
+            }
+            
+            function sum(arr) {
+                return arr.reduce((a, b) => a + b, 0);
+            }
+            
+            // Заполняем статистические строки
+            document.querySelector('.avg-salary').textContent = average(salaries).toFixed(2);
+            document.querySelector('.avg-bonus').textContent = average(bonuses).toFixed(2);
+            document.querySelector('.avg-total').textContent = average(totals).toFixed(2);
+            
+            document.querySelector('.min-salary').textContent = min(salaries).toFixed(2);
+            document.querySelector('.min-bonus').textContent = min(bonuses).toFixed(2);
+            document.querySelector('.min-total').textContent = min(totals).toFixed(2);
+            
+            document.querySelector('.max-salary').textContent = max(salaries).toFixed(2);
+            document.querySelector('.max-bonus').textContent = max(bonuses).toFixed(2);
+            document.querySelector('.max-total').textContent = max(totals).toFixed(2);
+            
+            document.querySelector('.grand-total').textContent = sum(totals).toFixed(2);
+            
+            // Подсвечиваем измененные ячейки
+            document.querySelectorAll('.bonus, .total').forEach(cell => {
+                cell.classList.add('highlight');
+                setTimeout(() => cell.classList.remove('highlight'), 2000);
+            });
+        });
+    </script>
+</body>
+</html>

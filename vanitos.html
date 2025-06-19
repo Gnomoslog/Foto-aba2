@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Экзаменационное задание 2</title>
+    <style>
+      body {
+        font: normal 16px/26px system-ui, Roboto, Arial, sans-serif;
+        background: #282828;
+        margin: 0;
+        padding: 0;
+        text-rendering: optimizeLegibility;
+        -webkit-font-smoothing: antialiased;
+        -webkit-text-size-adjust: none;
+        overflow-x: hidden;
+      }
+
+      .container {
+        display: flex;
+        flex-direction: column;
+        gap: 31px;
+        max-width: 1200px;
+        margin: 20px auto;
+        padding: 20px;
+      }
+
+      /* как Neumann */
+      .Neumann {
+        position: relative;
+        background-color: rgb(126, 100, 100);
+        padding: 50px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        border-radius: 5px;
+        min-height: 800px;
+      }
+
+      .Neumann2 {
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        right: 10px;
+        bottom: 10px;
+        border: 8px double #4a4a4a;
+        border-radius: 5px;
+        pointer-events: none;
+      }
+
+      /* фоновое слово */
+      .mark {
+        position: absolute;
+        /* слой */
+        opacity: 0.1;
+        font-size: 180px;
+        color: #0d56d3;
+        top: 50%;
+        left: 50%;
+        /* размешение на экране */
+        transform: translate(-50%, -50%) rotate(-45deg);
+        font-weight: bold;
+        pointer-events: none;
+        user-select: none;
+      }
+
+      .Neumann-content {
+        position: relative;
+        z-index: 1;
+      }
+
+      .Neumann-title {
+        font-size: 22px;
+        font-weight: bold;
+        text-align: center;
+        margin-bottom: 30px;
+        text-decoration: underline;
+      }
+
+      .Neumann-text {
+        font-size: 16px;
+        line-height: 1.5;
+        text-align: justify;
+        margin-bottom: 20px;
+        text-indent: 1.5cm;
+      }
+
+      /* элементы не мешать друг другу должны и поверх всех ост */
+      .Neumann-list {
+        font-size: 16px;
+        line-height: 1.5;
+        margin-left: 1.5cm;
+      }
+
+      /* нечентые лин */
+      .excel {
+        background-color: rgb(126, 100, 100);
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        border-radius: 5px;
+        overflow: hidden;
+      }
+
+      /* верхния строка */
+      .excel-title {
+        font-size: 18px;
+        font-weight: bold;
+        text-align: center;
+        padding: 10px;
+        background-color: rgb(126, 100, 100);
+        border-bottom: 1px solid rgb(126, 100, 100);
+      }
+
+      table {
+        width: 100%;
+        border-collapse: collapse;
+      }
+
+      /* полоски меж */
+      th,
+      td {
+        border: 1px solid rgba(136, 130, 102, 0.719);
+        padding: 8px;
+        text-align: left;
+      }
+
+      /* самае перв */
+      th {
+        font-weight: bold;
+        background-color: rgb(126, 100, 100);
+      }
+
+      /* четные  */
+      tr:nth-child(even) {
+        background-color: rgb(126, 100, 100);
+      }
+
+      /* ответ */
+      .total-row {
+        font-weight: bold;
+        background-color: rgb(126, 100, 100) !important;
+        border-top: 3px solid #000000; /* Граница сверху */
+      }
+
+
+      input {
+        width: 100%;
+        border: none;
+        background: transparent;
+        font-family: inherit;
+        font-size: inherit;
+      }
+
+      input:focus {
+        outline: 2px solid #a6ff00;
+        background-color: #96c22eab;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <!-- Neumann -->
+      <div class="Neumann">
+        <div class="Neumann2"></div>
+        <div class="mark">экзамен</div>
+        <div class="Neumann-content">
+          <div class="Neumann-title">Принципы фон Неймана</div>
+          <p class="Neumann-text">
+            Принципы, лежащие в основе архитектуры ЭВМ, были сформулированы в
+            1945 году Джоном фон Нейманом, который развил идеи Чарльза Беббиджа,
+            представлявшего работу компьютера как работу совокупности устройств:
+            обработки, управления, памяти, ввода-вывода.
+          </p>
+          <div class="Neumann-title">Принципы фон Неймана.</div>
+          <ol class="Neumann-list">
+            <li>Принцип однородности памяти.</li>
+            <li>Принцип адресуемости памяти.</li>
+            <li>Принцип последовательного программного управления.</li>
+            <li>
+              Принцип жесткости архитектуры. Неизменяемость в процессе работы
+              топологии, архитектуры, списка команд.
+            </li>
+          </ol>
+        </div>
+      </div>
+
+   
+      <div class="excel">
+        <div class="excel-title">Параметры можно изменить под все в жив времени</div>
+        <table id="excel-table">
+          <thead>
+            <tr>
+              <th>№</th>
+              <th>кто или что </th>
+              <th>кол-во</th>
+              <th>в %</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1</td>
+              <td>кто или что</td>
+              <td>
+                <input
+                  type="number"
+                  value="5"
+                  class="count-input"
+                  data-row="0"
+                />
+              </td>
+              <td class="percentage-cell" data-row="0"></td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>кто или что</td>
+              <td>
+                <input
+                  type="number"
+                  value="1"
+                  class="count-input"
+                  data-row="1"
+                />
+              </td>
+              <td class="percentage-cell" data-row="1"></td>
+            </tr>
+            <tr>
+              <td>3</td>
+              <td>кто или что</td>
+              <td>
+                <input
+                  type="number"
+                  value="2"
+                  class="count-input"
+                  data-row="2"
+                />
+              </td>
+              <td class="percentage-cell" data-row="2"></td>
+            </tr>
+            <tr>
+              <td>4</td>
+              <td>кто или что</td>
+              <td>
+                <input
+                  type="number"
+                  value="2"
+                  class="count-input"
+                  data-row="3"
+                />
+              </td>
+              <td class="percentage-cell" data-row="3"></td>
+            </tr>
+            <tr>
+              <td>5</td>
+              <td>кто или что</td>
+              <td>
+                <input
+                  type="number"
+                  value="10"
+                  class="count-input"
+                  data-row="4"
+                />
+              </td>
+              <td class="percentage-cell" data-row="4"></td>
+            </tr>
+            <tr>
+              <td>6</td>
+              <td>кто или что</td>
+              <td>
+                <input
+                  type="number"
+                  value="8"
+                  class="count-input"
+                  data-row="5"
+                />
+              </td>
+              <td class="percentage-cell" data-row="5"></td>
+            </tr>
+            <tr>
+              <td>7</td>
+              <td>кто или что</td>
+              <td>
+                <input
+                  type="number"
+                  value="7"
+                  class="count-input"
+                  data-row="6"
+                />
+              </td>
+              <td class="percentage-cell" data-row="6"></td>
+            </tr>
+            <tr class="total-row">
+              <td colspan="2">кто или что:</td>
+              <td id="total-count">=</td>
+              <td>100%</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <script>
+      // Ожидание загрузки DOM
+      document.addEventListener("DOMContentLoaded", function () {
+        // Получение инф кто тут ?
+        const countInputs = document.querySelectorAll(".count-input");
+        const percentageCells = document.querySelectorAll(".percentage-cell");
+        const totalCountCell = document.getElementById("total-count");
+
+        //   расчет
+        calculatePercentages();
+
+        // обработка полученого де aби л а?
+        countInputs.forEach((input) => {
+          input.addEventListener("input", calculatePercentages);
+        });
+
+        // расчета  циферек
+        function calculatePercentages() {
+          let total = 0;
+
+          // Подсчет общего количества циферек тоесть для глюпий сумирут
+          countInputs.forEach((input) => {
+            const value = parseInt(input.value) || 0;
+            total += value;
+          });
+
+          //  Обновление общего количества опять для гупый в ячейка сума выводить
+          totalCountCell.textContent = total;
+
+          // Расчет и вывод процентов короче старно но работет
+          countInputs.forEach((input) => {
+            const row = input.dataset.row;
+            const value = parseInt(input.value) || 0;
+            const percentageCell = document.querySelector(
+              `.percentage-cell[data-row="${row}"]`
+            );
+
+            // обязатильно больще 0
+            if (total > 0) {
+              const percentage = ((value / total) * 100).toFixed(1);
+              percentageCell.textContent = `${percentage}%`;
+            } else {
+              percentageCell.textContent = "0%";
+            }
+          });
+        }
+      });
+    </script>
+  </body>
+</html>

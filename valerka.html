@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Задание по информатике</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      margin: 0;
+      padding: 20px;
+      background: #282828;
+      font: normal 16px/26px system-ui, Roboto, Arial, sans-serif;
+      text-rendering: optimizeLegibility;
+      -webkit-font-smoothing: antialiased;
+      -webkit-text-size-adjust: none;
+      overflow-x: hidden;
+      color: #c0c0c0;
+    }
+
+
+    .container {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+      max-width: 1000px;
+      margin: 20px auto;
+      padding: 20px;
+    }
+
+    /* текст */
+    h2 {
+      color: #857171;
+      padding: 8px;
+      text-align: left;
+    }
+
+
+    h3 {
+      color: #857171;
+    }
+
+    /* 1 задание */
+    .section {
+      margin-bottom: 40px;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(158, 125, 125, 0.384);
+    }
+
+
+    .ram-info {
+      background-color: #35383b;
+      border-left: 6px solid #70767c;
+    }
+
+
+    .Masha_and_the_bear {
+      background-color: #35383b;
+      border-left: 6px solid #70767c;
+    }
+
+    .word-task {
+      background-color: #35383b;
+      border-left: 6px solid #70767c;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    /* полоски меж */
+    th,
+    td {
+      border: 1px solid rgba(136, 130, 102, 0.719);
+      padding: 8px;
+      text-align: left;
+    }
+
+    /* самае перв */
+    th {
+      font-weight: bold;
+      background-color: rgb(126, 100, 100);
+    }
+
+    /* четные  */
+    tr:nth-child(even) {
+      background-color: rgb(126, 100, 100);
+    }
+
+    /* ответ */
+    .total-row {
+      font-weight: bold;
+      background-color: rgb(126, 100, 100) !important;
+      border-top: 3px solid #000000;
+      /* Граница сверху */
+    }
+
+
+    input {
+      width: 100%;
+      border: none;
+      background: transparent;
+      font-family: inherit;
+      font-size: inherit;
+    }
+
+    input:focus {
+      outline: 2px solid #a6ff00;
+      background-color: #96c22eab;
+    }
+
+
+    .chart-container {
+      width: 100%;
+      height: 400px;
+      margin: 20px 0;
+      background-color: #484848;
+      border-radius: 8px;
+      padding: 10px;
+    }
+
+    .header,
+    .footer {
+      background-color: #282828;
+      color: rgb(104, 73, 73);
+      padding: 15px;
+      text-align: center;
+      border-radius: 8px;
+    }
+
+    .header {
+      margin-bottom: 20px;
+    }
+
+    .footer {
+      margin-top: 20px;
+    }
+
+    .tabbed-text {
+      white-space: pre;
+      font-family: monospace;
+      background-color: #484848;
+      padding: 15px;
+      border-radius: 8px;
+      overflow-x: auto;
+      color: #f0f0f0;
+      border-left: 3px solid #282828;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div class="section ram-info">
+      <h2>1. Назначение, применение и принцип работы оперативной памяти</h2>
+      <p><strong>Оперативная память (ОЗУ - оперативное запоминающее устройство)</strong> - это энергозависимая
+        часть компьютерной памяти, предназначенная для временного хранения данных и команд, необходимых
+        процессору для выполнения операций.</p>
+
+      <h3>Назначение:</h3>
+      <ul>
+        <li>Обеспечение быстрого доступа к данным, с которыми процессор работает в текущий момент</li>
+        <li>Хранение выполняемого кода программ и обрабатываемых данных</li>
+        <li>Обеспечение многозадачности операционной системы</li>
+      </ul>
+
+      <h3>Применение:</h3>
+      <ul>
+        <li>В персональных компьютерах, ноутбуках, серверах</li>
+        <li>В мобильных устройствах (смартфонах, планшетах)</li>
+        <li>В игровых консолях и других электронных устройствах</li>
+      </ul>
+
+      <h3>Принцип работы:</h3>
+      <p>Оперативная память состоит из ячеек, каждая из которых имеет уникальный адрес. При обращении процессора к
+        памяти по определенному адресу, данные из соответствующей ячейки передаются в процессор или записываются
+        в нее. Доступ к данным в ОЗУ осуществляется значительно быстрее, чем к данным на жестком диске или SSD.
+        Однако при отключении питания все данные из оперативной памяти стираются.</p>
+    </div>
+
+    <div class="section Masha_and_the_bear">
+      <!-- и тут для понятности меняй -->
+      <h2>2. График функции Y = 2x - 4cos(x) на отрезке [2; 4] с шагом 0,2</h2>
+      <div class="chart-container">
+        <canvas id="functionChart"></canvas>
+      </div>
+
+      <h3>Таблица значений:</h3>
+      <table id="functionTable">
+        <thead>
+          <tr>
+            <th>x</th>
+            <!-- что бы меняласьб надо менять тут  -->
+            <th>Y = 2x - 4cos(x)</th>
+          </tr>
+        </thead>
+        <tbody id="tableBody">
+        </tbody>
+      </table>
+    </div>
+
+    <div class="excel">
+      <div class="excel-title">Параметры можно изменить под все в жив времени</div>
+      <table id="excel-table">
+        <thead>
+          <tr>
+            <th>Император</th>
+            <th>Годы жизни </th>
+            <th>...</th>
+            <th>Царствование</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Александр I</td>
+            <td>1777-1825</td>
+            <td>
+      <td>1845-1894</td>
+          </tr>
+          <tr>
+            <td>Николай I</td>
+            <td>1796-1855</td>
+            <td>
+   <td>1845-1894</td>
+          </tr>
+          <tr>
+            <td>Александр I</td>
+            <td>1777-1825</td>
+            <td>
+      <td>1845-1894</td>
+          </tr>
+          <tr>
+            <td>Николай I</td>
+            <td>1796-1855</td>
+            <td>
+   <td>1845-1894</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  </div>
+
+  <!-- не трож рванет сама фунция -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script>
+    // Генерация дань для графика и таблицы
+    function calculateFunction(x) {
+      return 2 * x - 4 * Math.cos(x);
+    }
+
+    // Создаем массив значений x с шагом 0.2 от 2 до 4
+    const xValues = [];
+    const yValues = [];
+
+    for (let x = 2; x <= 4 + Number.EPSILON; x += 0.2) {
+      const roundedX = Math.round(x * 10) / 10; // Избегаем ошибок округления
+      xValues.push(roundedX);
+      yValues.push(calculateFunction(roundedX));
+    }
+
+    // Заполняем таблицу
+    const tableBody = document.getElementById('tableBody');
+    tableBody.innerHTML = ''; // Очищаем таблицу перед заполнением
+
+    xValues.forEach((x, index) => {
+      const row = document.createElement('tr');
+      const xCell = document.createElement('td');
+      const yCell = document.createElement('td');
+
+      xCell.textContent = x.toFixed(1);
+      yCell.textContent = yValues[index].toFixed(4);
+
+      row.appendChild(xCell);
+      row.appendChild(yCell);
+      tableBody.appendChild(row);
+    });
+
+    // Создаем график
+    const ctx = document.getElementById('functionChart').getContext('2d');
+    const chart = new Chart(ctx, {
+      type: 'line',
+      data: {
+        labels: xValues.map(x => x.toFixed(1)),
+        datasets: [{
+          label: 'Y = 2x - 4cos(x)',
+          data: yValues,
+          borderColor: '#5ad54a',
+          backgroundColor: 'rgba(90, 213, 74, 0.1)',
+          borderWidth: 2,
+          tension: 0.1,
+          fill: true,
+          pointBackgroundColor: '#5ad54a',
+          pointRadius: 4,
+          pointHoverRadius: 6
+        }]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: {
+          legend: {
+            labels: {
+              color: '#f0f0f0'
+            }
+          },
+          tooltip: {
+            callbacks: {
+              label: function (context) {
+                return `Y = ${context.parsed.y.toFixed(4)}`;
+              }
+            }
+          }
+        },
+        scales: {
+          x: {
+            title: {
+              display: true,
+              text: 'x',
+              color: '#f0f0f0'
+            },
+            grid: {
+              color: 'rgba(255, 255, 255, 0.1)'
+            },
+            ticks: {
+              color: '#f0f0f0'
+            }
+          },
+          y: {
+            title: {
+              display: true,
+              text: 'Y',
+              color: '#f0f0f0'
+            },
+            grid: {
+              color: 'rgba(255, 255, 255, 0.1)'
+            },
+            ticks: {
+              color: '#f0f0f0'
+            }
+          }
+        }
+      }
+    });
+  </script>
+
+
+  <script>
+    // Ожидание загрузки DOM
+    document.addEventListener("DOMContentLoaded", function () {
+      // Получение инф кто тут ?
+      const countInputs = document.querySelectorAll(".count-input");
+      const percentageCells = document.querySelectorAll(".percentage-cell");
+      const totalCountCell = document.getElementById("total-count");
+
+      //   расчет
+      calculatePercentages();
+
+      // обработка полученого де aби л а?
+      countInputs.forEach((input) => {
+        input.addEventListener("input", calculatePercentages);
+      });
+
+      // расчета  циферек
+      function calculatePercentages() {
+        let total = 0;
+
+        // Подсчет общего количества циферек тоесть для глюпий сумирут
+        countInputs.forEach((input) => {
+          const value = parseInt(input.value) || 0;
+          total += value;
+        });
+
+        //  Обновление общего количества опять для гупый в ячейка сума выводить
+        totalCountCell.textContent = total;
+
+        // Расчет и вывод процентов короче старно но работет
+        countInputs.forEach((input) => {
+          const row = input.dataset.row;
+          const value = parseInt(input.value) || 0;
+          const percentageCell = document.querySelector(
+            `.percentage-cell[data-row="${row}"]`
+          );
+
+          // обязатильно больще 0
+          if (total > 0) {
+            const percentage = ((value / total) * 100).toFixed(1);
+            percentageCell.textContent = `${percentage}%`;
+          } else {
+            percentageCell.textContent = "0%";
+          }
+        });
+      }
+    });
+  </script>
+</body>
+
+</html>
